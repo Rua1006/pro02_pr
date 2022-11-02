@@ -30,3 +30,11 @@ desc table notice;
 select * from notice;
 
 insert into notice(title, content, author) values ("테스트1","테스트1내용","dmin");
+insert into notice(title, content, author) values ("테스트2","테스트2내용","dmin");
+insert into notice(title, content, author) values ("테스트3","테스트3내용","dmin");
+insert into notice(title, content, author) values ("테스트4","테스트4내용","dmin");
+insert into notice(title, content, author) values ("테스트5","테스트5내용","dmin");
+commit;
+
+
+select * from notice order by notiNo desc;

@@ -19,8 +19,9 @@
 	Notice vo = (Notice) request.getAttribute("notice");
 %>
 <div class="content container">
-	<h2 class="title">공지사항 목록</h2>
+	<h2 class="title">공지사항</h2>
 	<table class="table">
+		
 		<tbody>
 			<tr>
 				<th>번호</th>
@@ -45,7 +46,7 @@
 		</tbody>
 	</table>
 	<div class="btn-group">
-		<a href="GetBoardListCtrl" class="btn btn-danger">목록으로</a>
+		<a href="GetBoardListCtrl" class="btn btn-outline-warning">목록으로</a>
 	</div>
 </div>
 </body>

@@ -13,5 +13,6 @@
 <body>
 <%@ include file="header.jsp" %>
 	<a href="../boardListCtrl"></a>
+
 </body>
 </html>

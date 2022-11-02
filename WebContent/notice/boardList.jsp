@@ -21,11 +21,13 @@
 <div class="content container">
 	<h2 class="title">공지사항 목록</h2>
 	<table class="table">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
-				<th>연번</th><th>제목</th><th>작성일</th>
-			</tr>
-		</thead>
+		      <th scope="col">번호</th>
+		      <th scope="col">제목</th>
+		      <th scope="col">작성일</th>
+	    	</tr>
+ 		 </thead>
 		<tbody>
 		<% for(int i=0;i<notiList.size();i++){
 			Notice vo = notiList.get(i);
@@ -38,6 +40,9 @@
 		<% } %>	
 		</tbody>
 	</table>
+	<div class="btn-group">
+		<a href="./notice/insertBoard.jsp" class="btn btn-outline-warning">글 작성</a>
+	</div>
 </div>
 </body>
 </html>
