@@ -19,6 +19,7 @@ import kr.co.myshop.vo.Notice;
 @WebServlet("/UpdateBoardCtrl")
 public class UpdateBoardCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//데이터베이스 연결정보 입력
 	private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private final static String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
 	private final static String USER = "root";
@@ -27,6 +28,7 @@ public class UpdateBoardCtrl extends HttpServlet {
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int notiNo = Integer.parseInt(request.getParameter("notiNo"));
+		//데이터베이스 연결 
 		try {
 			
 			Class.forName(DRIVER);
@@ -38,6 +40,7 @@ public class UpdateBoardCtrl extends HttpServlet {
 			
 			
 			Notice vo = new Notice();
+			//데이터베이스로부터 받아 저장
 			if(rs.next()){
 				vo.setNotiNo(rs.getInt("notino"));
 				vo.setTitle(rs.getString("title"));
@@ -47,7 +50,7 @@ public class UpdateBoardCtrl extends HttpServlet {
 			}
 			request.setAttribute("notice", vo);
 			
-			
+			//포워딩
 			RequestDispatcher view = request.getRequestDispatcher("./notice/updateBoard.jsp");
 			view.forward(request, response);
 			

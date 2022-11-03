@@ -9,7 +9,7 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Dr.dog<span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="<%=request.getContextPath()%>/index.jsp">Dr.dog<span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">브랜드</a>
@@ -41,15 +41,22 @@
 	          	고객지원
 	        </a>
 	        <div class="dropdown-menu">
-	          <a class="dropdown-item" href="GetBoardListCtrl">공지사항</a>
+	          <a class="dropdown-item" href="<%=request.getContextPath()%>/GetBoardListCtrl">공지사항</a>
 	          <a class="dropdown-item" href="#">고객문의</a>
 	          <a class="dropdown-item" href="#">사용후기</a>
 	        </div>
 	      </li>
 	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-	    </form>
+	    <ul class="nav justify-content-end">
+		  <li class="nav-item">
+		    <a class="nav-link text-warning" href="<%=request.getContextPath()%>/custom/memberShip.jsp">회원가입</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link text-warning" href="<%=request.getContextPath()%>/custom/login.jsp">로그인</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link text-warning" href="#">Contact Us</a>
+		  </li>
+		</ul>
 	  </div>
 	</nav>

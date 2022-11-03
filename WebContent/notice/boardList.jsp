@@ -34,14 +34,14 @@
 		%>
 		<tr>
 			<td><%=vo.getNotiNo() %></td>
-			<td><a href="GetBoardDetailCtrl?notiNo=<%=vo.getNotiNo() %>"><%=vo.getTitle() %></a></td>
+			<td><a href="<%=request.getContextPath()%>/GetBoardDetailCtrl?notiNo=<%=vo.getNotiNo() %>"><%=vo.getTitle() %></a></td>
 			<td><%=vo.getResDate() %></td>
 		</tr>
 		<% } %>	
 		</tbody>
 	</table>
 	<div class="btn-group">
-		<a href="./notice/insertBoard.jsp" class="btn btn-outline-warning">글 작성</a>
+		<a href="<%=request.getContextPath()%>/notice/insertBoard.jsp" class="btn btn-outline-warning">글 작성</a>
 	</div>
 </div>
 </body>

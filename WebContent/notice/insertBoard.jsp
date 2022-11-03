@@ -15,7 +15,7 @@
 <% Notice vo = (Notice) request.getAttribute("notice"); %>
 <div class="content container">
 <h2 class="title">공지사항 작성</h2>
-<form name="form1" id="form1" action="../InsertBoardCtrl" method="post">
+<form name="form1" id="form1" action="<%=request.getContextPath()%>/InsertBoardCtrl" method="post">
 	<table class="table">
 		<tbody>
 			<tr>
@@ -35,7 +35,7 @@
 	<div class="btn-group">
 		<input type="submit" name="submit_button" class="btn btn-outline-warning" value="작성">
 		<input type="reset" name="reset_button" class="btn btn-outline-warning" value="취소">
-		<a href="../GetBoardListCtrl" class="btn btn-outline-warning">글목록</a>
+		<a href="<%=request.getContextPath()%>/GetBoardListCtrl" class="btn btn-outline-warning">글목록</a>
 	</div>
 </form>
 </div>

@@ -12,7 +12,8 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-	<a href="../boardListCtrl"></a>
+	<a href="<%=request.getContextPath()%>/boardListCtrl"></a>
 
 </body>
+<%@ include file="footer.jsp" %>
 </html>

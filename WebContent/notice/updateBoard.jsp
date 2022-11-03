@@ -18,12 +18,10 @@
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<%
-	Notice vo = (Notice) request.getAttribute("notice");
-%>
+<% Notice vo = (Notice) request.getAttribute("notice"); %>
 <div class="content container" id="content">
 	<h2 class="title">공지사항 수정</h2>
-	<form name="frm1" id="frm1" action="UpdateBoardProCtrl" method="post">
+	<form name="frm1" id="frm1" action="<%=request.getContextPath()%>/UpdateBoardProCtrl" method="post">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -45,9 +43,10 @@
 		<div class="btn-group">
 			<input type="submit" name="submit-btn" class="btn btn-outline-warning" value="글 수정">
 			<input type="reset" name="reset-btn" class="btn btn-outline-warning" value="취소">
-			<a href="GetBoardListCtrl" class="btn btn-outline-warning">목록으로</a>
+			<a href="<%=request.getContextPath()%>/GetBoardListCtrl" class="btn btn-outline-warning">목록으로</a>
 		</div>
 	</form>	
 </div>
+
 </body>
 </html>
