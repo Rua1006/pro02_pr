@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String sid = (String) session.getAttribute("sid");
+	String sname = (String) session.getAttribute("sname");
+%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  <a class="navbar-brand" href="index.jsp">Dr.Dog</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,15 +52,32 @@
 	      </li>
 	    </ul>
 	    <ul class="nav justify-content-end">
-		  <li class="nav-item">
-		    <a class="nav-link text-warning" href="<%=request.getContextPath()%>/custom/memberShip.jsp">회원가입</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link text-warning" href="<%=request.getContextPath()%>/custom/login.jsp">로그인</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link text-warning" href="#">Contact Us</a>
-		  </li>
+		  <% if(sid!=null) { %>
+			  <li class="nav-item">
+			    <span class="nav-link text-warning"><%=sname %>님</span>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/LogOutCtrl">로그아웃</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetCustomInfoCtrl">회원정보</a>
+			  </li>
+			  <% if(sid.equals("admin")) { %>
+			  	<li class="nav-item">
+				 <a class="nav-link text-warning" href="<%=request.getContextPath() %>/admin/index.jsp">관리자 페이지로</a>
+			  	 </li>
+			  <% } %>
+		  <% } else { %>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/login.jsp">로그인</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/memberShip.jsp">회원가입</a>
+			  </li>
+		  <% } %>
+			  <li>
+			    <a class="nav-link text-warning" href="#">Contact Us</a>
+			  </li>
 		</ul>
 	  </div>
 	</nav>

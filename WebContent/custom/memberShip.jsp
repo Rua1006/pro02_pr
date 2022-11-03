@@ -347,21 +347,29 @@
 </div>
 <div class="btn-group">
 	<input type="checkbox" id="ck_item2" name="ck_item2"> <label for="ck_item2">약관의 동의</label><br><br>
+</div>
+<div class="btn-group">
+	<label for="ck_item3" onclick="protocol()" class="form-check-label"><strong>전체 약관에 동의</strong></label>
 	<button type="button" id="in_btn1" name="in_btn1" class="btn btn-outline-warning"> 다음 단계</button>
 </div>
 </div>
 <script>
 	var ck_item1 = document.getElementById("ck_item1");
 	var ck_item2 = document.getElementById("ck_item2");
+	var in_btn1 = document.getElementById("in_btn1");
 	in_btn1.addEventListener("click", function(){
 		if(ck_item1.checked && ck_item2.checked){
 			location.href = "insertCustom.jsp";
-		}else{
-			alert("약관 및 개인정보 처리에 동의하지 않으셨습니다");
+		} else {
+			alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
 			return;
 		}
 	});
-</script>
+	function protocol(){
+		ck_item1.checked = true;
+		ck_item2.checked = true;
+	}
+	</script>
 </body>
 
 </html>

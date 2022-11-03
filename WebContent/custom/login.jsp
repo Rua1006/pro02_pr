@@ -21,26 +21,29 @@
 <%@ include file="../header.jsp" %>
 <div class="content">
 <h2 class="page_title">로그인</h2>
-<table class="table">
-	<tbody>
-		<tr>
-		<th><label for="cusId">아이디</label></th>
-		<td>
-			<input type="text" id="cusId" name="cudId" class="form-control" placeholder="아이디입력" autofocus required>
-		</td>
-		</tr>
-		<tr>
-		<th><label for="cusPw">비밀번호</label></th>
-		<td>
-			<input type="password" id="cusPw" name="cusPw" class="form-control" placeholder="비밀번호입력" required>
-		</td>
-		</tr>
-	</tbody>
-</table>
-<div class="btn-group">
-<button type="button" id="in_btn1" name="in_btn1" class="btn btn-outline-warning">로그인</button>
-<button type="button" id="in_btn1" name="in_btn1" class="btn btn-outline-warning">취소</button>
-</div>
+<form name="frm1" id="frm1" action="<%=request.getContextPath() %>/LoginCtrl" method="post">
+	<table class="table">
+		<tbody>
+			<tr>
+			<th>아이디</th>
+			<td>
+				<input type="text" id="cusId" name="cusId" class="form-control" placeholder="아이디입력" autofocus required>
+			</td>
+			</tr>
+			<tr>
+			<th>비밀번호</th>
+			<td>
+				<input type="password" id="cusPw" name="cusPw" class="form-control" placeholder="비밀번호입력" required>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="btn-group">
+		<input type="submit" name="submit-btn" class="btn btn-outline-warning" value="로그인">
+		<input type="reset" name="reset-btn" class="btn btn-outline-warning" value="취소">
+		<a href="<%=request.getContextPath() %>/custom/memberShip.jsp" class="btn btn-outline-warning">회원가입</a>
+	</div>
+</form>
 </div>
 </body>
 </html>

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String cusId = request.getParameter("cusId");
+	if(cusId==null || cusId=="") cusId="";
+%>    
 <!DOCTYPE>
 <html>
 <head>
@@ -13,8 +17,9 @@
 <body>
 <div class="fr">
 	<h2>아이디 중복 확인</h2>
-	<form action="<%=request.getContextPath()%>/IdCheckCtrl" method="post" class="form-control" onsubmit="return invalidCheck(this)">
-		<input type="text" name="id" id="id" placeholder="8~12문자 및 숫자 입력" required autofocus>
+	<form action="../IdCheckCtrl" method="post" onsubmit="return invalidCheck(this)">
+		<label for="cusId">아이디</label>
+		<input type="text" name="cusId" id="cusId" placeholder="8~12문자 및 숫자 입력" value="<%=cusId %>"/>
 		<input type="submit" value="중복확인">
 	</form>
 	<script>

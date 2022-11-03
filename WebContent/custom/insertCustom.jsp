@@ -22,77 +22,95 @@
 <div class="content">
 <h2 class="page_title">회원가입</h2>
 <div class="form_fr">
-	<form action="<%=request.getContextPath()%>/InsertCustomCtrl" method="post" name="frm1" id="frm1" onsubmit="return joinAlert(this)">
+	<form action="../InsertCustomCtrl" method="post" name="frm1" id="frm1" onsubmit="return joinCheck(this)">
 		<table class="table">
 			<tbody>
 				<tr>
-				<th><label for="cusId">아이디</label></th>
+				<th>아이디</th>
 				<td>
-					<input type="text" id="cusId" name="cudId" class="form-control" placeholder="아이디입력" autofocus required>
-					<button type="button" class="btn btn-outline-warning" onclick="idCheck()">아이디 중복 확인</button>
+					<div class="form-row">
+					<input type="text" id="cusId" name="cusId" class="form-control" placeholder="아이디입력" autofocus required/>
+					<input type="button" class="btn btn-outline-warning" value="아이디 중복 확인" onclick="idCheck()">
 					<input type="hidden" name="idck" value="no">
+					</div>
 				</td>
 				</tr>
 				<tr>
-				<th><label for="cusPw">비밀번호</label></th>
+				<th>비밀번호</th>
 				<td>
-					<input type="password" id="cusPw" name="cusPw" class="form-control" placeholder="비밀번호입력" required>
+					<input type="password" id="cusPw" name="cusPw" class="form-control" placeholder="비밀번호입력" required/>
 				</td>
 				</tr>
 				<tr>
-				<th><label for="cusPw2">비밀번호 확인</label></th>
+				<th>비밀번호 확인</th>
 				<td>
-					<input type="password" id="cusPw2" name="cusPw2" class="form-control" placeholder="비밀번호확인" required>
+					<input type="password" id="cusPw2" name="cusPw2" class="form-control" placeholder="비밀번호확인" required/>
 				</td>
 				</tr>
 				<tr>
-				<th><label for="cusName">이름</label></th>
+				<th>이름</th>
 				<td>
-					<input type="text" id="cusName" name="cusName" class="form-control" placeholder="이름입력" required>
+					<input type="text" id="cusName" name="cusName" class="form-control" placeholder="이름입력" required/>
 				</td>
 				</tr>
 				<tr>
-				<th><label for="address">주소</label></th>
-				<td>
-					<input type="text" id="address1" name="address1" class="form-control" placeholder="주소입력">
-				</td>
+					<th>주소</th>
+					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="form-control" required /><br>
+					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="form-control" required /><br>
+					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="form-control">
+					<button id="post_btn" onclick="findAddr()" class="btn btn-primary">우편번호 검색</button>
+					</td>
 				</tr>
 				<tr>
-				<th><label for="address">상세주소</label></th>
-				<td>
-					<input type="text" id="address2" name="address2" class="form-control" placeholder="상세주소입력">
-				</td>
-				</tr>
-				<tr>
-				<th><label for="tel">전화번호</label></th>
+				<th>전화번호</th>
 				<td>
 					<input type="text" id="tel" name="tel" class="form-control" placeholder="000-0000-0000" required>
 				</td>
 				</tr>
 			</tbody>		
-		</table>	
+		</table>
+		<div class="btn-group">
+			<input type="submit" name="submit-btn" value="가입" class="btn btn-outline-warning">
+			<input type="reset" name="reset-btn" value="취소" class="btn btn-outline-warning" >
+		</div>	
 	</form>
 </div>
-<div class="btn-group">
-	<input type="submit" value="가입" class="btn btn-outline-warning">
-<button type="button" id="in_btn1" name="in_btn1" class="btn btn-outline-warning">취소</button>
 </div>
-</div>
-<script>
-function joinAlert(f){
-	if(f.cusPw.value!=f.cusPw2.value){
-		alert("비밀번호가 일치하지 않습니다.");
-		return false;
+	<script>
+	function idCheck(){
+			var cusId = document.frm1.cusId.value;
+			var win = window.open("idCheck.jsp?cusId="+cusId,"id 중복 체크", "width=400, height=300");
+		}
+		function joinCheck(f){
+			if(f.cusPw.value!=f.cusPw2.value){
+				alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+				f.cusPw.focus();
+				return false;
+			}
+			if(f.idck.value!="yes"){
+				alert("아이디 중복 체크를 하지 않으셨습니다.");
+				return false;
+			}
+		}
+	</script>
+	<script>
+	function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				console.log(data);
+				var roadAddr = data.roadAddress;
+				var jibunAddr = data.jibunAddress;
+				document.getElementById("postcode").value = data.zonecode;
+				if(roadAddr !== '') {
+					document.getElementById("address1").value = roadAddr;				
+				} else if(jibunAddr !== ''){
+					document.getElementById("address1").value = jibunAddr;
+				}
+				document.getElementById("address2").focus();
+			}
+		}).open();
 	}
-	if(f.idck.value!="yes"){
-		alert("아이디 중복확인을 하지 않았습니다.");
-		return false;
-	}
-}
-function idCheck(){
-	var win = window.open("idCheck.jsp", "idCheckWin", "width=600, height=400" );
-}
-
-</script>
+	</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

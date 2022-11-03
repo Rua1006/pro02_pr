@@ -5,16 +5,18 @@ commit;
 use myshop;
 create table custom(
 	cusId varchar(20) primary key,
-	cusPw varchar(30) not null,
+	cusPw varchar(1000) not null,
 	cusName	varchar(50) not null,
 	address	varchar(100) not null,
-	tel int(30),	
+	tel varchar(100),	
 	regDate	datetime default now(),
 	point int default 0,		
 	level int default 0,
 	visited int default 0
     );
 
+insert into custom (cusid, cuspw, cusname, address, tel) values('admin','12345','관리자','관리자','000-0000-0000');
+delete from custom where cusid = 'admin';
 desc table custom;
 select * from custom;
 

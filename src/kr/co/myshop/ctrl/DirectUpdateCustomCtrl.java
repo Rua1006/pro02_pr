@@ -16,16 +16,15 @@ import javax.servlet.http.HttpSession;
 
 import com.crypto.util.SHA256;
 
-
-@WebServlet("/LoginCtrl")
-public class LoginCtrl extends HttpServlet {
+@WebServlet("/DirectUpdateCustomCtrl")
+public class DirectUpdateCustomCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final static String	URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
-    private final static String	USER = "root";
-    private final static String	PASS = "a1234";
-	String sql = "";
-	
+	private final static String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
+	private final static String USER = "root";
+	private final static String PASS = "a1234";
+	String sql = "";   
+    
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -34,15 +33,13 @@ public class LoginCtrl extends HttpServlet {
 		String cus = request.getParameter("cusPw");
 		String cusPw = "";
 		try {
-			 cusPw = SHA256.encrypt(cus);
-		} catch (NoSuchAlgorithmException e1) {
-			e1.printStackTrace();
+			cusPw = SHA256.encrypt(cus);
+		} catch (NoSuchAlgorithmException el) {
+			el.printStackTrace();
 		}
-		
-		
-		try{
+		try {
 			Class.forName(DRIVER);
-			sql="select * from custom where cusid=? and cuspw=?";
+			sql = "select * from custom where cusid=? and cuspw=?";
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = null;
@@ -55,15 +52,13 @@ public class LoginCtrl extends HttpServlet {
 				session.setAttribute("sid", cusId);
 				session.setAttribute("sname", rs.getString("cusname"));
 				response.sendRedirect("index.jsp");
-			}else{
+			} else {
 				response.sendRedirect("./custom/login.jsp");
 			}
-			
 			pstmt.close();
 			con.close();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
