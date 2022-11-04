@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*, kr.co.myshop.vo.*"%>
-<%
-	Custom custom = (Custom) request.getAttribute("custom");
-%>
+<%	Custom custom = (Custom) request.getAttribute("custom"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +33,6 @@
 				<tr>
 					<th>비밀번호</th>
 					<td>
-						<p>비밀번호 변경시 입력</p>
 						<input type="hidden" name="cusPw" id="cusPw" value="<%=custom.getCusPw() %>">
 						<input type="password" name="edit_cusPw" id="edit_cusPw" placeholder="비밀번호 입력" class="form-control" />
 					</td>
@@ -124,4 +121,5 @@
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </div>
 </body>
+<%@ include file="../footer.jsp" %>
 </html>

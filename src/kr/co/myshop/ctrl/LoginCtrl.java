@@ -51,6 +51,7 @@ public class LoginCtrl extends HttpServlet {
 			rs = pstmt.executeQuery();
 			HttpSession session = request.getSession();
 			
+			
 			if(rs.next()){
 				session.setAttribute("sid", cusId);
 				session.setAttribute("sname", rs.getString("cusname"));
@@ -58,7 +59,6 @@ public class LoginCtrl extends HttpServlet {
 			}else{
 				response.sendRedirect("./custom/login.jsp");
 			}
-			
 			pstmt.close();
 			con.close();
 		}catch(Exception e){

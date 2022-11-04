@@ -22,7 +22,7 @@
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<div class="content" id="content">
+<div class="content container" id="content">
 <h2 class="page_title">가입 약관</h2>
 <div class="agree_fr" id="content">
 <article>제1장 총칙
@@ -371,5 +371,5 @@
 	}
 	</script>
 </body>
-
+<%@ include file="../footer.jsp" %>
 </html>

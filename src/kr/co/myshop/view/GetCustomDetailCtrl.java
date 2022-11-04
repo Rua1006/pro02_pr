@@ -60,7 +60,7 @@ public class GetCustomDetailCtrl extends HttpServlet {
 			}
 			request.setAttribute("custom", vo);
 			
-			RequestDispatcher view = request.getRequestDispatcher("./admin/customDetail.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("./admin/customDetail.jsp"); //admin/customDetail.jsp 만들어야함
 			view.forward(request, response);
 
 			pstmt.close();

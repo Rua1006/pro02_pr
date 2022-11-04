@@ -62,7 +62,6 @@ public class InsertCustomCtrl extends HttpServlet {
 				response.sendRedirect("./custom/insertCustom.jsp");
 			}
 			
-			
 			pstmt.close();
 			con.close();
 		}catch(Exception e){
