@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,11 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.myshop.vo.Category;
 import kr.co.myshop.vo.Product;
 
 
-@WebServlet("/GetProductDetailCtrl")
-public class GetProductDetailCtrl extends HttpServlet {
+@WebServlet("/UpdateProductCtrl")
+public class UpdateProductCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private final static String URL = "jdbc:mysql://localhost:3306/myshop?serverTimezone=Asia/Seoul";
@@ -49,9 +52,25 @@ public class GetProductDetailCtrl extends HttpServlet {
 				vo.setProPic2(rs.getString("propic2"));
 			}
 			request.setAttribute("pro", vo);
+			rs.close();
+			pstmt.close();
 			
-			//product/productDetail.jsp 에 포워딩
-			RequestDispatcher view = request.getRequestDispatcher("./product/productDetail.jsp");
+			sql = "select * from category";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			//결과를 데이터베이스로 부터 받아서 리스트로 저장
+			List<Category> cateList = new ArrayList<Category>();
+			while(rs.next()){
+				Category cate = new Category();
+				cate.setCateNo(rs.getInt("cateno"));
+				cate.setCateName(rs.getString("catename"));
+				cateList.add(cate);
+			}
+			request.setAttribute("cateList", cateList);
+			
+			//product/updateProduct.jsp 에 포워딩
+			RequestDispatcher view = request.getRequestDispatcher("./product/updateProduct.jsp");
 			view.forward(request, response);
 			
 			rs.close();
