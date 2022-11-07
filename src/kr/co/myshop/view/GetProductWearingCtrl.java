@@ -52,6 +52,10 @@ public class GetProductWearingCtrl extends HttpServlet {
 		//product/productDetail.jsp 에 포워딩
 		RequestDispatcher view = request.getRequestDispatcher("./product/productDetail.jsp");
 		
+		rs.close();
+		pstmt.close();
+		con.close();
+		
 	}catch(Exception e){
 		e.printStackTrace();
 	}
