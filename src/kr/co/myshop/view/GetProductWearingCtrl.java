@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,20 @@ public class GetProductWearingCtrl extends HttpServlet {
 		ResultSet rs = pstmt.executeQuery();
 		
 		Product vo = new Product();
+		if(rs.next()){
+			vo.setProNo(rs.getInt("prono"));
+			vo.setCateNo(rs.getInt("cateno"));
+			vo.setProName(rs.getString("proname"));
+			vo.setProSpec(rs.getString("prospec"));
+			vo.setOriPrice(rs.getInt("oriprice"));
+			vo.setDiscountRate(rs.getDouble("discountrate"));
+			vo.setProPic(rs.getString("propic"));
+			vo.setProPic2(rs.getString("propic2"));
+		}
+		request.setAttribute("pro", vo);
+		
+		//product/productDetail.jsp 에 포워딩
+		RequestDispatcher view = request.getRequestDispatcher("./product/productDetail.jsp");
 		
 	}catch(Exception e){
 		e.printStackTrace();
