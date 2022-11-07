@@ -20,6 +20,8 @@ delete from custom where cusid = 'admin';
 desc table custom;
 select * from custom;
 
+drop table notice;
+
 create table notice(
 	notiNo int primary key auto_increment,
 	title varchar(100) not null,
@@ -27,6 +29,10 @@ create table notice(
 	author varchar(20) not null,
 	resDate datetime default now()
 );
+
+alter table notice add (visited int default 0);
+
+update notice set visited=0;
 
 desc table notice;
 select * from notice;
@@ -52,6 +58,8 @@ insert into category(cateName) values ("TOP");
 insert into category(cateName) values ("PANTS");
 insert into category(cateName) values ("SHOES");
 insert into category(cateName) values ("BAG");
+insert into category(cateName) values ("사료");
+
 select * from category;
 
 
@@ -66,4 +74,39 @@ create table product(
 	proPic varchar(200),
 	proPic2 varchar(200)
 );
+
+select * from product;
+
+create table wearing(
+	proNO int primary key,
+	amount int
+);
+
+create table cart(
+	cartNo int primary key,
+    cusId varchar(200) not null,
+    proNo int not null,
+    amount int not null    
+);
+
+
+create table parsel(
+	parselNo int primary key,
+    parselAddr varchar(500) not null,
+    cusTel varchar(100) not null,
+    parselCompany varchar(300) not null,
+    parselTel varchar(100),
+    parselState int
+);
+
+create table sales(
+	salesNo int primary key,
+    cusId varchar(100) not null,
+    proNo varchar(200) not null,
+    amount int not null,
+    saleDate varchar(200),
+    parselNo int not null,
+    salePayNo int not null    
+);
+
 commit;

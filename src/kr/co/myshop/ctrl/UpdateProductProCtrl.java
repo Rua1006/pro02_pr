@@ -27,8 +27,8 @@ public class UpdateProductProCtrl extends HttpServlet {
 	int cnt = 0;
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String uploadPath = "D:\\kim6\\pro01\\pro02\\WebContent\\upload"; 업로드디렉티브 만들어야함
-	   String uploadPath = request.getRealPath("/upload");
+		String uploadPath = "D:\\kbs\\pro01\\pro02\\WebContent\\upload";
+	   //String uploadPath = request.getRealPath("/upload");
 	   
 	   System.out.println(uploadPath);
 	   int size = 10*1024*1024;
@@ -49,6 +49,7 @@ public class UpdateProductProCtrl extends HttpServlet {
 	                     size, 
 	                     "UTF-8",
 	            new DefaultFileRenamePolicy());
+	      
 	      proNo=Integer.parseInt(multi.getParameter("proNo"));
 	      cateNo=Integer.parseInt(multi.getParameter("cateNo"));
 	      proName=multi.getParameter("proName");

@@ -10,6 +10,13 @@ public class Product {
 	private int proPrice;	//상품금액
 	private String proPic;	//상품이미지
 	private String proPic2;	//상품이미지2
+	private int amount;
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	public int getOriPrice() {
 		return oriPrice;
 	}

@@ -44,15 +44,24 @@ public class LoginCtrl extends HttpServlet {
 			Class.forName(DRIVER);
 			sql="select * from custom where cusid=? and cuspw=?";
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
+			
+			con.setAutoCommit(false);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = null;
 			pstmt.setString(1, cusId);
 			pstmt.setString(2, cusPw);
 			rs = pstmt.executeQuery();
+			
 			HttpSession session = request.getSession();
 			
 			
 			if(rs.next()){
+				sql="update custom set visited=visited+1, point=point+5 where cusid=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, cusId);
+				pstmt.executeUpdate();
+				con.commit();
+				con.setAutoCommit(true);
 				session.setAttribute("sid", cusId);
 				session.setAttribute("sname", rs.getString("cusname"));
 				response.sendRedirect("index.jsp");

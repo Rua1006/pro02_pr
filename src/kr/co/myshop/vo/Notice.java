@@ -6,6 +6,13 @@ public class Notice {
 	private String content;
 	private String author;
 	private String resDate;
+	private int visited;
+	public int getVisited() {
+		return visited;
+	}
+	public void setVisited(int visited) {
+		this.visited = visited;
+	}
 	public int getNotiNo() {
 		return notiNo;
 	}

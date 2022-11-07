@@ -28,14 +28,14 @@ public class GetProductListCtrl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			//데이터베이스 연결
+			
 			Class.forName(DRIVER);
 			sql = "select * from product order by prono";
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			
-			//결과를 데이터베이스로 부터 받아서 리스트로 저장
+			
 			List<Product> proList = new ArrayList<Product>();
 			while(rs.next()){
 				Product vo = new Product();

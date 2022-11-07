@@ -52,7 +52,17 @@
 					세일전 가격 : (<del><%=vo.getOriPrice() %></del>) 
 				</td>
 			</tr>
+			<tr>
 			
+				<th>재고현황</th>
+				<td>
+				<%if(vo.getAmount()!=0) {%>
+					<%=vo.getAmount() %>
+				<% } else { %>	
+					<strong style="color:red">재고수량 없음</strong>
+				<% } %>
+				</td>
+			</tr>			
 		</tbody>
 	</table>
 	<div class="btn-group">
@@ -60,7 +70,11 @@
 		<% if(sid.equals("admin")) { %>
 		<a href="<%=request.getContextPath() %>/DeleteProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-primary">제품 삭제</a>
 		<a href="<%=request.getContextPath() %>/UpdateProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-danger">제품 정보 수정</a>
+		<a href="<%=request.getContextPath() %>/GetProductWearingCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-danger">제품 입고</a>
 		<% } %>
+		<% if(vo.getAmount()!=0) { %>
+		<a href="<%=request.getContextPath() %>/GetSalesProductCtrl?proNo=<%=vo.getProNo() %>" class="btn btn-danger">제품 구매</a>
+		<%} %>
 	</div>
 </div>
 <%@ include file="../footer.jsp" %>

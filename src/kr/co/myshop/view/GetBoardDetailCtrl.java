@@ -29,22 +29,30 @@ public class GetBoardDetailCtrl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int notiNo = Integer.parseInt(request.getParameter("notiNo"));
 		try {
-			//데이터베이스 연결
 			Class.forName(DRIVER);
 			sql = "select * from notice where notino=?";
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
+			
+			con.setAutoCommit(false);
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, notiNo);
 			ResultSet rs = pstmt.executeQuery();
 			
-			//결과를 데이터베이스로 부터 받아서 VO에 저장
 			Notice vo = new Notice();
 			if(rs.next()){
+				sql = "update notice set visited=visited+1 where notino=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, notiNo);
+				pstmt.executeUpdate();
+				con.commit();	
+				con.setAutoCommit(true);
+				
 				vo.setNotiNo(rs.getInt("notino"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setAuthor(rs.getString("author"));
 				vo.setResDate(rs.getString("resdate"));
+				vo.setVisited(rs.getInt("visited"));
 			}
 			request.setAttribute("notice", vo);
 			
