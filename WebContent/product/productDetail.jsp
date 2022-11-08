@@ -53,10 +53,9 @@
 				</td>
 			</tr>
 			<tr>
-			
 				<th>재고현황</th>
 				<td>
-				<%if(vo.getAmount()!=0) {%>
+				<% if(vo.getAmount()!=0) {%>
 					<%=vo.getAmount() %>
 				<% } else { %>	
 					<strong style="color:red">재고수량 없음</strong>

@@ -82,6 +82,8 @@ create table wearing(
 	amount int
 );
 
+select*from wearing;
+
 create table cart(
 	cartNo int primary key,
     cusId varchar(200) not null,

@@ -49,8 +49,9 @@ public class GetProductWearingCtrl extends HttpServlet {
 		}
 		request.setAttribute("pro", vo);
 		
-		//product/productDetail.jsp 에 포워딩
-		RequestDispatcher view = request.getRequestDispatcher("./product/productDetail.jsp");
+		//product/productWearing.jsp 에 포워딩
+		RequestDispatcher view = request.getRequestDispatcher("./product/productWearing.jsp");
+		view.forward(request, response);
 		
 		rs.close();
 		pstmt.close();

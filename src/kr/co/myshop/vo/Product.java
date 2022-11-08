@@ -11,6 +11,7 @@ public class Product {
 	private String proPic;	//상품이미지
 	private String proPic2;	//상품이미지2
 	private int amount;
+	
 	public int getAmount() {
 		return amount;
 	}
@@ -60,10 +61,10 @@ public class Product {
 		this.proSpec = proSpec;
 	}
 	public int getProPrice() {
-		return proPrice;
+		return (int)(this.oriPrice*(1-this.discountRate));
 	}
 	public void setProPrice(int proPrice) {
-		this.proPrice = proPrice;
+		this.proPrice = (int)(this.oriPrice*(1-this.discountRate));
 	}
 	public String getProPic() {
 		return proPic;

@@ -51,6 +51,7 @@ public class GetProductDetailCtrl extends HttpServlet {
 				vo.setDiscountRate(rs.getDouble("discountrate"));
 				vo.setProPic(rs.getString("propic"));
 				vo.setProPic2(rs.getString("propic2"));
+				vo.setAmount(rs.getInt("amount"));
 				
 			}else {
 				rs.close();
@@ -71,6 +72,7 @@ public class GetProductDetailCtrl extends HttpServlet {
 					vo.setDiscountRate(rs.getDouble("discountrate"));
 					vo.setProPic(rs.getString("propic"));
 					vo.setProPic2(rs.getString("propic2"));
+					vo.setAmount(0);
 			}
 			con.commit();
 			con.setAutoCommit(true);
