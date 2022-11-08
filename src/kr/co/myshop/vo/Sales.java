@@ -9,6 +9,13 @@ public class Sales {
 	private int parselNo;	//배송번호
 	private int salePayNo;	//결제번호
 	private int parselState;
+	private String parselCompany;
+	public String getParselCompany() {
+		return parselCompany;
+	}
+	public void setParselCompany(String parselCompany) {
+		this.parselCompany = parselCompany;
+	}
 	public int getParselState() {
 		return parselState;
 	}

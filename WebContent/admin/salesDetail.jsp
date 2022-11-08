@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>구매 상세 내역 페이지</title>
+<title>구매 내역  상세 페이지</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -58,14 +58,28 @@
 						<th>결제번호</th>
 						<td><%=vo.getProNo() %></td>
 					</tr>
+					<tr>
+						<th>배송상태</th>
+						<td>
+							<% if(vo.getParselState()==0) { %>
+							<span>배송전</span>
+							<% } else if(vo.getParselState()==1) { %>
+							<span>배송중</span>
+							<% } else if(vo.getParselState()==2) { %>
+							<span>도착</span>
+							<% } else if(vo.getParselState()==3) { %>
+							<span>구매결정 완료</span>
+							<% } %>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-danger">목록으로</a>
+				<a href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl" class="btn btn-outline-warning">목록으로</a>
 				<% if(vo.getParselState()==0) { %>
-				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-primary">직권 결제 취소</a>
-				<a href="<%=request.getContextPath() %>/UpdateParselCtrl?parselNo=<%=vo.getParselNo() %>" class="btn btn-danger">배송 정보 등록</a>
+				<a href="<%=request.getContextPath() %>/DeleteSalesCtrl?saleNo=<%=vo.getSaleNo() %>" class="btn btn-outline-warning">결제 취소</a>
 				<% } %>
+				<a href="<%=request.getContextPath() %>/UpdateParselCtrl?parselNo=<%=vo.getParselNo() %>" class="btn btn-outline-warning">배송 정보 등록</a>
 			</div>
 		</main>
 	</main>		

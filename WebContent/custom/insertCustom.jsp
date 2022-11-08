@@ -58,7 +58,7 @@
 					<td><input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="form-control" required /><br>
 					<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="form-control" required /><br>
 					<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="form-control">
-					<button id="post_btn" onclick="findAddr()" class="btn btn-primary">우편번호 검색</button>
+					<button id="post_btn" onclick="findAddr()" class="btn btn-outline-warning">우편번호 검색</button>
 					</td>
 				</tr>
 				<tr>
@@ -93,6 +93,7 @@
 			}
 		}
 	</script>
+	<!-- 주소 스크립트 -->
 	<script>
 	function findAddr() {
 		new daum.Postcode({

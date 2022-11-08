@@ -51,8 +51,10 @@
 	</table>
 	<div class="btn-group">
 		<a href="<%=request.getContextPath()%>/GetBoardListCtrl" class="btn btn-outline-warning">목록으로</a>
+		<% if(sid!=null && sid.equals("admin")) { %>
 		<a href="<%=request.getContextPath()%>/DeleteBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-warning">글 삭제</a>
 		<a href="<%=request.getContextPath()%>/UpdateBoardCtrl?notiNo=<%=vo.getNotiNo() %>" class="btn btn-outline-warning">글 수정</a>
+		<%} %>
 	</div>
 </div>
 </body>

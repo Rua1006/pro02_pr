@@ -21,13 +21,16 @@
 			  	  제품 관리</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link text-warning">질문 및 답변 관리</a>
+		       <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetQnaListCtrl.do">
+		      	질문 및 답변 관리</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link text-warning">판매관리</a>
+		       <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetAdminSalesListCtrl">
+		       	판매관리</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link text-warning">배송관리</a>
+		       <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetAdminParselListCtrl">
+		       	배송관리</a>
 			  </li>
 			</ul>
 		</div>

@@ -66,18 +66,25 @@
 			  	<li class="nav-item">
 				 <a class="nav-link text-warning" href="<%=request.getContextPath() %>/admin/index.jsp">관리자 페이지로</a>
 			  	 </li>
+			 <% } else { %>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetMemberSalesInfoCtrl">구매내역</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/GetMemberCartListCtrl">장바구니</a>
+			  </li>
 			  <% } %>
-		  <% } else { %>
-			  <li class="nav-item">
-			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/login.jsp">로그인</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/memberShip.jsp">회원가입</a>
-			  </li>
-		  <% } %>
-			  <li>
-			    <a class="nav-link text-warning" href="#">Contact Us</a>
-			  </li>
+			  <% } else { %>
+				  <li class="nav-item">
+				    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/login.jsp">로그인</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link text-warning" href="<%=request.getContextPath() %>/custom/memberShip.jsp">회원가입</a>
+				  </li>
+			  <% } %>
+				  <li>
+				    <a class="nav-link text-warning" href="#">Contact Us</a>
+				  </li>
 		</ul>
 	  </div>
 	</nav>
