@@ -9,15 +9,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="common.css">
 <style>
-.title { padding-top:36px; padding-bottom:20px; }
-#content_row { min-height:calc(100vh - 84px); }
+
 </style>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
+<%@ include file="../admin/admin_sidebar.jsp" %>
 <% List<Custom> cusList = (ArrayList<Custom>) request.getAttribute("cusList"); %>
-<div class="content container">
+<div class="content container" id="content">
+<main class="content container">
 	<h2 class="title">회원목록</h2>
 	<table class="table">
 		<thead class="thead-dark">
@@ -57,6 +59,7 @@
 		<%}%>
 		</tbody>
 	</table>
+	</main>
 </div>
 </body>
 <%@ include file="../footer.jsp" %>

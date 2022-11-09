@@ -5,16 +5,13 @@
 	String sname = (String) session.getAttribute("sname");
 %>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="index.jsp">Dr.Dog</a>
+	  <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">Dr.Dog</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="<%=request.getContextPath()%>/index.jsp">Dr.dog<span class="sr-only">(current)</span></a>
-	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">브랜드</a>
 	      </li>
@@ -23,7 +20,7 @@
 	          	제품
 	        </a>
 	        <div class="dropdown-menu">
-	          <a class="dropdown-item" href="#">사료</a>
+	          <a class="dropdown-item" href="<%=request.getContextPath()%>/GetProductListCtrl">사료</a>
 	          <a class="dropdown-item" href="#">디저트</a>
 	          <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="#">건식</a>

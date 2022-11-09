@@ -16,7 +16,7 @@
 .content {padding: 24px; width: 1000px; margin:50px auto;}
 .page_title { font-weight:bolder; font-size: 50px;  text-align: center;}
 .title { padding-top:36px; padding-bottom:20px; }
-.btn-group { margin:10px auto; padding: 24px; display:block; float:right; }
+.btn-group { margin:10px auto 30px; padding: 24px; display:block; float:right; }
 .agree_fr { width: 900px; white-space:pre-wrap; margin: 10px auto;  padding: 24px; border:2px solid #eee; height:400px; overflow-y:auto; font-family: 'Noto Sans KR', sans-serif; }
 </style>
 </head>

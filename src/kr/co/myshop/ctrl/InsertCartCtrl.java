@@ -41,7 +41,7 @@ public class InsertCartCtrl extends HttpServlet {
 			cnt = pstmt.executeUpdate();
 			//결과를 데이터베이스로 부터 받아서 VO에 저장
 			if(cnt>=1){
-				response.sendRedirect("GetProductItemListCtrl?cateNo=3");
+				response.sendRedirect("GetProductItemListCtrl?cateNo=1");
 			} else {
 				response.sendRedirect("GetProductDetailCtrl?proNo="+proNo);
 			}

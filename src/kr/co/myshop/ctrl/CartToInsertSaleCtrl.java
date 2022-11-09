@@ -108,7 +108,7 @@ public class CartToInsertSaleCtrl extends HttpServlet {
 			con.setAutoCommit(true);
 			
 			if(cnt>=1){
-				response.sendRedirect("GetProductItemListCtrl?cateNo=3");
+				response.sendRedirect("GetProductItemListCtrl?cateNo=1");
 			} else {
 				response.sendRedirect("CartToSaleCtrl?proNo="+proNo+"&cartNo="+cartNo);
 			}

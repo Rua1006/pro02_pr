@@ -109,7 +109,7 @@
 			</table>
 			<% if(sid!=null || sid.equals("admin")) { %>
 			<div class="btn-group">
-				<a href="<%=request.getContextPath() %>/qna/qnaWrite.jsp" class="btn btn-danger">글 등록</a>
+				<a href="<%=request.getContextPath() %>/qna/qnaWrite.jsp" class="btn btn-outline-warning">글 등록</a>
 			</div>
 			<% } %>
 		</main>

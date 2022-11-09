@@ -27,8 +27,8 @@ public class UpdateProductProCtrl extends HttpServlet {
 	int cnt = 0;
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uploadPath = "D:\\kbs\\pro01\\pro02\\WebContent\\upload";
-	   //String uploadPath = request.getRealPath("/upload");
+		//String uploadPath = "D:\\kbs\\pro01\\pro02\\WebContent\\upload";
+	   String uploadPath = request.getRealPath("/upload");
 	   
 	   System.out.println(uploadPath);
 	   int size = 10*1024*1024;

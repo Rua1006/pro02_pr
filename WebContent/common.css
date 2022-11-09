@@ -6,7 +6,7 @@ ul, ul li { list-style:none; }
 left:50%; margin-left:-111px; display:block; padding-left:20px; padding-right:20px; }
 #navbarSupportedContent { padding-top:14px; padding-bottom:14px; }
 
-#content { min-height:80vh; }
+#content { min-height:100vh; }
 #best { margin-top:20px; padding-top:20px; }
 #best li { padding-top:margin-top:24px; }
 #footer { margin-top:20px; padding-top:20px; border-top:3px solid #eee; }
